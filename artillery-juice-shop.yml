@@ -1,0 +1,32 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+      name: "Warm up"
+    - duration: 120
+      arrivalRate: 25
+      name: "Sustained load"
+  defaults:
+    headers:
+      Accept: "application/json, text/plain, */*"
+      User-Agent: "Artillery"
+scenarios:
+  - name: "Browse main page"
+    flow:
+      - get:
+          url: "/"
+  - name: "Search for products"
+    flow:
+      - get:
+          url: "/rest/products/search?q=apple"
+  - name: "View product details"
+    flow:
+      - get:
+          url: "/rest/products/1"
+  - name: "Change language to French"
+    flow:
+      - post:
+          url: "/rest/languages"
+          json:
+            language: "fr"
