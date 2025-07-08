@@ -24,7 +24,7 @@ scenarios:
     flow:
       - get:
           url: "/rest/products/1"
-  - name: "Change language to French"
+  - name: "Viewing score-board"
     flow:
       - get:
           url: "/score-board"
