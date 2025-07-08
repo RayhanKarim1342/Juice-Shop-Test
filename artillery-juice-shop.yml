@@ -26,7 +26,5 @@ scenarios:
           url: "/rest/products/1"
   - name: "Change language to French"
     flow:
-      - post:
-          url: "/rest/languages"
-          json:
-            language: "fr"
+      - get:
+          url: "/score-board"
